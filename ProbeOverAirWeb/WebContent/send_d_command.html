@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title></title>
+<link rel="stylesheet" media="all" href="css/terminal.css">
+<!-- <link rel="chrome-application-definition" href="js/manifest.json">-->
+<script src="js/jquery.min.js"></script>
+<!-- <script src="js/jquery.teletype.js"></script> -->
+<script src="js/mqttws31.min.js" type="text/javascript"></script>
+<!-- <script src="js/mqtt.js"></script> -->
+
+<style>
+.pad{padding-left: 20px;padding-top: 20px;}
+.mar{margin-left: 20px;margin-top: 20px;}
+.mar a{color:#000;text-decoration:none;}
+#output{margin-top: 20px;
+    position: relative;
+    left: 20px;}
+    #date{padding-left: 20px;}
+</style>
+</head>
+<body>
+<div id="locald" class="pad"></div>
+<p class="type-text pad">Please Enter the Command Below</p>
+<!-- <div Id="date"></div> -->
+<!--<div class="crt top"></div>-->
+<div class="interlace"></div>
+<div id="container"></div>
+
+<!--<div class="crt bottom"></div>-->
+<!-- <button class="mar" onclick="init()">Send</button>&nbsp;&nbsp;&nbsp;
+<button class="mar"><a href="device_avail.html">Cancel</a></button> -->
+<div id="output"></div>
+<script src="js/terminal-hive.js"></script>
+
+</body>
+</html>

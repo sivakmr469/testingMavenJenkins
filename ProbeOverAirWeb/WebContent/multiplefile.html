@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AngularJS File Upoad Example with $http and FormData</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body ng-app="fupApp">
+<form class="well form-horizontal"  action="FirstServlet?upload=false" method="post"  id="contact_form" enctype="multipart/form-data">
+    <div ng-controller="fupController">
+
+        <input type="file" id="file1" name="file" multiple
+            ng-files="getTheFiles($files)" />
+<br>
+<input type="text" name="probename">
+        <br>
+<input type="text" name="priority">
+
+        <input type="submit"  value="Upload" />
+        
+         <input  type="button" value="Upload1" ng-click="uploadFiles1()"/>
+    </div>
+    </form>
+</body>
+<script>
+    angular.module('fupApp', [])
+        .directive('ngFiles', ['$parse', function ($parse) {
+
+            function fn_link(scope, element, attrs) {
+                var onChange = $parse(attrs.ngFiles);
+                element.on('change', function (event) {
+                    onChange(scope, { $files: event.target.files });
+                   // alert("bye");
+                    
+                });
+            };
+
+            return {
+                link: fn_link
+            }
+        } ])
+        .controller('fupController', function ($scope, $http) {
+
+            var formdata = new FormData();
+            $scope.getTheFiles = function ($files) {
+                angular.forEach($files, function (value, key) {
+                    formdata.append(key, value);
+                });
+                $scope.uploadFiles();
+            };
+
+            // NOW UPLOAD THE FILES.
+            $scope.uploadFiles = function () {
+                //alert("hi");
+
+                var request = {
+                    method: 'POST',
+                    url: '/ProbeOverAirWeb/FirstServlet?upload=true',
+                    data: formdata,
+                    headers: {
+                        'Content-Type': undefined
+                    }
+                };
+
+                // SEND THE FILES.
+                $http(request)
+                    .success(function (d) {
+                        console.log(d);
+                        
+                    })
+                    .error(function () {
+                    // $( "#contact_form" ).submit();
+                    });
+           	// $( "#contact_form" ).submit();
+             
+               
+            };
+
+            $scope.uploadFiles1 = function () {
+            	// $( "#contact_form" ).submit();
+
+                var request = {
+                    method: 'POST',
+                    url: '/ProbeOverAirWeb/FirstServlet?upload=false',
+                    data: formdata,
+                    headers: {
+                        'Content-Type': undefined
+                    }
+                };
+
+                // SEND THE FILES.
+                $http(request)
+                    .success(function (d) {
+                        console.log(d);
+                        
+                    })
+                    .error(function () {
+                    	// $( "#contact_form" ).submit();
+                    });
+          	
+             
+               
+            }
+            
+        });
+</script>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Probe Details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">   
+  <link rel="stylesheet" href="./css/website-style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/om2mInterface.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body ng-app="om2mInterface">
+
+<div class="container-fluid container-main" ng-controller="om2mController">
+  <div style="display:-webkit-box;border-color: #e7e7e7;background-color: #0f233b;color:#fff; padding:1rem"><div style="-webkit-box-flex:1">Connected Device - enterpriseTest</div><span>test@accenture.com</span></div>
+  <div style="display:-webkit-box;border-color: #e7e7e7;background-color: #0f233b;color:#fff; padding:1rem"><div style="background-color: #3a3633;padding-left:2rem;padding-right:2rem;padding-bottom:0.5rem;padding-top:0.5rem;border-radius:5px">Dashboard</div><div style="-webkit-box-flex:1;"></div><span style="font-size:14px;">terms of use</span></div>
+  
+  <div class="content">
+    
+	<div class="row content">
+    <div class="col-sm-2 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+		<li role="presentation" >
+  <!--  <div class="upload">
+		<input 
+        <input type="file"  fileread="vm.uploadme"  name="upload workorder"/>
+    </div>
+	<button type="button" ng-click="uploadWorkorder();" class="btn btn-default">Upload Workorder</button>
+	-->
+	<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="woName" placeholder="Enter Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" ng-model="devicesTowo" placeholder="List of devices">
+    </div>
+  </div>
+   <div class="form-group">
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" ng-model="woDescription" placeholder="Description">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10"> 
+      <input type="file"  fileread="vm.uploadme"  name="upload workorder"/>
+    </div>
+  </div>
+  
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      	<button type="button" ng-click="uploadWorkorder();" class="btn-download">Upload Workorder</button>
+    </div>
+  </div>
+</form>
+          </li>
+		</ul><br>
+    </div>
+	
+   <div class="table-responsive">
+      <h3>My Probe Details</h3>
+	   <table class="table">
+    <thead style="background-color: #50637a;color:#fff">
+      <tr>
+        <th>Name</th>
+        <th>Device</th>
+        <th>Status</th>
+		<th>Results</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="deviceDetailsArray in data">
+      <tr ng-repeat="probeDetails in data">
+        <td>{{probeDetails.workorderName}}</td>
+        <td>{{probeDetails.deviceName}}</td>
+        <td>{{statusArr[probeDetails.statusId]}}</td>
+		<td><button ng-disabled=probeDetails.statusId!=3 class="btn-download">Download</button></td>
+      </tr>
+    </tbody>
+  </table>
+       <br><br>
+      
+    </div>
+ </div>
+    
+</div>
+
+
+</body>
+</html>

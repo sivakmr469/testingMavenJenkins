@@ -1,0 +1,71 @@
+
+@font-face {
+	font-family: 'digital-7';
+	src: url('../fonts/digital-7.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+hr{margin:0px;}
+.site{margin-top: 8px;margin-bottom: 8px!important;}
+.site>tbody>tr>td,.site>tbody>tr>th{font-size:11px;font-weight:bold;padding: 2px 0px 0px 7px;border-top: 1px solid #ADA8A8;}
+.ele{margin-bottom: 10px;border-collapse: inherit;border-radius: 3px 0px 0px 3px;margin-top: 5px;margin-left: 10px;text-align:center;}
+.ele>tbody>tr>td{font-size:11px;padding: 2px;border-top: 1px solid #ADA8A8;}
+.ele b{color:#CE7331}
+.up-arw{background:url(../images/up-arrow.PNG)no-repeat;width:25px;height:30px;display: block;font-size: 20px;padding-left: 28px;padding-top: 6px;margin:0px 15px;}
+.pro-bar{background:url(../images/pro-bar.PNG)left center no-repeat;width:40px;height:30px;display: block;font-size: 20px;padding-left: 26px;margin:0px 35px;}
+
+.pad {padding:5px 15px;font-size:20px;}
+.row1{margin-left:-10px;margin-right:-10px;}
+.pad2{padding-left:7px;padding-bottom: 13px;}
+h4{
+    margin-top: 5px !important;
+    margin-bottom: 0px!important;
+    
+}
+h3{
+    margin-top: 10px !important;
+    margin-bottom: 10px!important;
+    
+}
+.mtop{margin-top:10px;}
+.mtop1{margin-top:5px;}
+.trend-pad{    padding: 16px 0px;}
+.co2-pad{    padding: 10px 0px;}
+.co2par{    font-size: 11px;
+    text-align: center;
+    width: 110px;
+    margin: 0 auto;
+    font-weight: bold;
+    position: relative;
+    top: 15px;}
+.co2par b{color:#CE7331}
+.cust-col{padding-left:5px;padding-right:5px;}
+.buildpad{padding:0px 8px 0px 8px;}
+.panel-default {
+    border-color: #8C8A8A;
+}
+.panel-default>.panel-heading {
+      border-color: #8C8A8A;
+}
+.build{margin-bottom: 3px;}
+.build>tbody>tr>td,.build>tbody>tr>th{font-size:11px;font-weight:bold;}    
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+}
+.text-muted{margin: 20px 0;text-align: right;color:#fff;}
+.navbar {
+    border-radius: 0px;
+}
+.digit{font-family: 'digital-7';}
+.clockpad{margin:33px 3px!important;}
+.clockpadcost{margin:24px 3px!important;}
+.ats-switch span.switch-right {
+    background: #5cb85c!important;
+}
+.ats-switch.switch-primary span.switch-left {
+       background: #d9534f!important;
+}

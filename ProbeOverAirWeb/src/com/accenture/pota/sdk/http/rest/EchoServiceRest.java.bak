@@ -1,0 +1,42 @@
+package com.accenture.pota.sdk.http.rest;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import com.accenture.pota.dal.exception.TagDalException;
+import com.accenture.pota.sdk.facade.TagSdkFacadeLocal;
+import com.accenture.pota.sdk.xml.model.RetrievedeviceListResponse;
+
+@Path("/echoservice")
+@Stateless
+public class EchoServiceRest {
+	@EJB
+	private TagSdkFacadeLocal tagSdkFacade;
+
+	/*@GET
+	@Path("/{param}")
+	public Response getMsg(@PathParam("param") String msg) {
+		System.out.println("Hello------------------------------");
+		String output = "Jersey say : " + msg;
+		return Response.status(200).entity(output).build();
+	}
+	*/@GET
+	@Path("device/list")
+	@Produces({MediaType.APPLICATION_JSON})
+	public RetrievedeviceListResponse getDeviceList() {
+		RetrievedeviceListResponse response =new RetrievedeviceListResponse();
+	try {
+		response = tagSdkFacade.retrieveDeviceList();
+	} catch (TagDalException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+        return response;
+    }
+}
