@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ProbeOverAirEar-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="ProbeOverAirEJB-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ProbeOverAirEJB/ProbeOverAirEJB">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ProbeOverAirWeb-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/ProbeOverAirWeb/ProbeOverAirWeb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-ext-1.7.21.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/slf4j-ext/1.7.21/slf4j-ext-1.7.21.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.21.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cal10n-api-0.8.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ch/qos/cal10n/cal10n-api/0.8.1/cal10n-api-0.8.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ProbeOverAirJava-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/ProbeOverAirJava/ProbeOverAirJava">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
