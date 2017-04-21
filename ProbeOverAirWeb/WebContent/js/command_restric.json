@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "command": "poweroff"
+    },{
+      "command": "raspi-config"
+    },{
+      "command": "rm"
+    },{
+      "command": "rmdir"
+    },{
+      "command": "mkdir"
+    },{
+      "command": "shutdown"
+    },{
+      "command": "nano"
+    },{
+      "command": "vi"
+    },{
+      "command": "mv"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+ 
+<html>
+<head>
+<title>File Uploading Form</title>
+</head>
+<body>
+<!-- <h3>File Upload:</h3>
+Select a file to upload: <br />
+<form action="UploadServlet" method="post"
+                        enctype="multipart/form-data"> -->
+                        
+                       
+        <form method="post" action="UploadServlet"  enctype="multipart/form-data">
+        Email ID:<input type="text" name="email" /><br/>
+        Password:<input type="text" name="pass" /><br/>
+        
+        
+        <input type="file" name="file" multiple="multiple"/><br>
+        <br>
+        <select multiple="multiple">
+  <option selected="selected" value="volvo">Volvo</option>
+  <option selected="selected" value="saab">Saab</option>
+  <option value="vw">VW</option>
+  <option value="audi">Audi</option>
+</select>
+        <input type="submit" value="upload files" />
+</form>
+</body>
+</html> 

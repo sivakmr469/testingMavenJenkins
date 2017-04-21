@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="RetrieveWorkorderDetailsResponse">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element ref="workorderList" minOccurs="0" maxOccurs="unbounded"/>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    <xs:element name="workorderList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workorderId" type="xs:string" />
+				<xs:element name="allocationId" type="xs:string" />
+				<xs:element name="workorderName" type="xs:string" />
+				<xs:element name="statusId" type="xs:string" />
+				<xs:element name="deviceName" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

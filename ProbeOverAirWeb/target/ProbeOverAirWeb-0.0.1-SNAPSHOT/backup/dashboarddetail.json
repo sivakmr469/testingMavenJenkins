@@ -1,0 +1,46 @@
+{
+  "testing_detail":[
+    {
+      "id" : 1,
+      "device_name" : "Almond +",
+      "device_location" : "Pune",
+      "status" : "complete",
+      "report" : "Report",
+	  "action" : "",
+	  "href"   : "download/Testresults"
+    },
+	{
+      "id" : 2,
+      "device_name" : "Almond +",
+      "device_location" : "Banglore",
+      "status" : "Pending",
+      "report" : "Pending",
+	  "action" : "Send Dianostic command"
+    },
+	{
+      "id" : 3,
+      "device_name" : "Almond +",
+      "device_location" : "Hyderabad",
+      "status" : "Pending",
+      "report" : "offline",
+	  "action" : "Send Dianostic command"
+    },
+	{
+      "id" : 4,
+      "device_name" : "Almond ++",
+      "device_location" : "London",
+      "status" : "Pending",
+      "report" : "Pending",
+	  "action" : "Send Dianostic command"
+    },
+	{
+      "id" : 5,
+      "device_name" : "Almond ++",
+      "device_location" : "Hyderabad",
+      "status" : "complete",
+      "report" : "Report",
+	  "action" : "",
+	  "href"   : "download/Testresults"
+    }
+  ]
+ }

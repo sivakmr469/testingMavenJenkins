@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="app">
+<head>
+	<title>Accenture Building Control Dashboard</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 	
+	<link rel="stylesheet" href="css/component.css">    
+	<link rel="stylesheet" href="css/BootSideMenu.css">    
+	<link rel="stylesheet" href="https://silviomoreto.github.io/bootstrap-select/dist/css/bootstrap-select.min.css"> 
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/esvit/ng-table/master/dist/ng-table.min.css" type="text/css">	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="https://silviomoreto.github.io/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/ng-table.min.js"></script>
+	<script src="js/BootSideMenu.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script> -->
+	<script src="https://rawgit.com/grevory/angular-local-storage/master/dist/angular-local-storage.min.js"></script>
+	 <script type="text/javascript">
+		  $(document).ready(function(){
+			  $('#test').BootSideMenu({side:"left", autoClose:true});
+			  });
+	 </script>
+	
+</head>
+<body ng-controller="MainCtrl-1">
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+    <div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>                        
+      	</button>
+      	<a class="navbar-brand" href="device_avail.html" >Accenture</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+		
+		<ul class="nav navbar-nav navbar-right">
+        	<li><a href="#"><span class="glyphicon glyphicon-user"></span> User Name</a></li>
+        	<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      	</ul>
+    </div>
+ 	</div>
+</nav>
+ 
+
+	<div id="test">
+			  <a href="device_avail.html" class="list-group-item active" target="_self" >Dashboard</a>
+			  <a href="/ProbeOverAirWeb/createprobe" class="list-group-item">Add New Test Probes</a>
+			  <a href="#" class="list-group-item">Device Inventory</a>
+			  <a href="#" class="list-group-item disabled">Standard Test Libraries</a>
+			  <a href="#" class="list-group-item disabled">Reports</a>
+			  <a href="#" class="list-group-item">Advanced Search</a>
+	</div>
+
+  <div class="container">
+  
+   <!-- <p><input type="text" ng-model="localStorageDemo" placeholder="Start typing..."></p>
+
+      <blockquote class="well" ng-show="localStorageDemoValue">
+        <p ng-bind="localStorageDemoValue"></p>
+        <small>{{storageType}} value</small>
+      </blockquote> -->
+  
+	<div class="row">
+		 <div class="col-md-12 text-center">
+		  <h3>Dashboard Detail</h3>
+		 </div> <br clear="all"/> <br clear="all"/> 
+	</div>	
+		<div class="row">
+		<div class="col-md-12">
+			<table class="table table-bordered">
+				<thead>
+				  <tr>
+					
+					<td> Details for Probe <!-- <a href="" ng-click="orderByField='uploaded_by'; sortRev = !sortRev">  
+					      Uploaded By
+						 <span ng-show="orderByField == 'uploaded_by' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+						 <span ng-show="orderByField == 'uploaded_by' && sortRev" class="glyphicon glyphicon-chevron-down"></span> 
+						</a> -->
+					</td>
+					<td> Conformance Test Almond<!-- <a href="" ng-click="orderByField='upload_time'; sortRev = !sortRev">  
+					    Upload Time
+						<span ng-show="orderByField == 'upload_time' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+						<span ng-show="orderByField == 'upload_time' && sortRev" class="glyphicon glyphicon-chevron-down"></span> 
+						</a> -->
+					</td>
+					
+				  </tr>
+				</thead>
+				<tbody>
+					
+				  <tr>
+					
+				</tbody>
+			</table>
+			<!-- <button type = "button" class = "btn btn-success btn-mrgn"><span class="glyphicon glyphicon-ok"></span>&nbsp;OK</button>&nbsp;&nbsp;<button type = "button" class = "btn btn-danger btn-mrgn"><span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel</button> -->
+		</div>
+	</div>
+		
+		
+	
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-bordered" ng-table="tableParams3">
+				<thead>
+				  <tr class="test-hist">
+					
+					<th>
+						<a href="" ng-click="orderByField='script_file'; sortRev = !sortRev"> 
+						Script File
+						<span ng-show="orderByField == 'script_file' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+					    <span ng-show="orderByField == 'script_file' && sortRev" class="glyphicon glyphicon-chevron-down"></span>
+						</a>
+					</th>
+					<th>
+					    <a href="" ng-click="orderByField='priority'; sortRev = !sortRev"> 
+						Priority
+						<span ng-show="orderByField == 'priority' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+					    <span ng-show="orderByField == 'priority' && sortRev" class="glyphicon glyphicon-chevron-down"></span>
+						</a>
+					</th>
+					
+				  </tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="person in $data | filter: searchKeyword | orderBy:orderByField:sortRev">
+						<!-- <td>
+							{{person.test_scripts}}
+						</td> -->
+						<td> 
+							{{person.script_file}}
+						</td>
+						<td>
+							{{person.priority}}
+						</td>
+					</tr>
+								
+				</tbody>
+			</table>
+			<!-- <button type = "button" class = "btn btn-success btn-mrgn"><span class="glyphicon glyphicon-ok"></span>&nbsp;OK</button>&nbsp;&nbsp;<button type = "button" class = "btn btn-danger btn-mrgn"><span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel</button> -->
+		</div>
+	</div>
+	
+	
+	
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-bordered" ng-table="tableParams2">
+				<thead>
+				  <tr class="test-hist">
+					<th> <a href="" ng-click="orderByField='device_name'; sortRev = !sortRev"> 
+						Device Name
+						<span ng-show="orderByField == 'device_name' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+					    <span ng-show="orderByField == 'device_name' && sortRev" class="glyphicon glyphicon-chevron-down"></span>
+						</a>
+					
+					</th>
+					<th> <a href="" ng-click="orderByField='device_location'; sortRev = !sortRev">  
+					      Device Location
+						 <span ng-show="orderByField == 'device_location' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+						 <span ng-show="orderByField == 'device_location' && sortRev" class="glyphicon glyphicon-chevron-down"></span> 
+						</a>
+					</th>
+					<th> <a href="" ng-click="orderByField='status'; sortRev = !sortRev">  
+					     Status
+						<span ng-show="orderByField == 'status' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+						<span ng-show="orderByField == 'status' && sortRev" class="glyphicon glyphicon-chevron-down"></span> 
+						</a>
+					</th>
+					<th> 
+						<a href="" ng-click="orderByField='report'; sortRev = !sortRev"> 	
+						Report
+						<span ng-show="orderByField == 'report' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+						<span ng-show="orderByField == 'report' && sortRev" class="glyphicon glyphicon-chevron-down"></span> 
+						</a>
+					</th>
+					<th> 
+						<a href="" ng-click="orderByField='action'; sortRev = !sortRev"> 	
+						Action
+						<span ng-show="orderByField == 'action' && !sortRev" class="glyphicon glyphicon-chevron-up"></span>
+						<span ng-show="orderByField == 'action' && sortRev" class="glyphicon glyphicon-chevron-down"></span> 
+						</a>
+					</th>
+				  </tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="person in $data | filter: searchKeyword | orderBy:orderByField:sortRev">
+						<td>
+							{{person.device_name}}
+						</td>
+						<td>
+							{{person.device_location}}
+						</td>
+						<td>
+							{{person.status}}
+						</td>
+						<td><a href="{{person.href}}" target="_blank">
+							{{person.report}}
+							</a>
+						</td>
+						<td><a href="{{person.href}}" target="_blank" ng-click="fun(person)">
+							{{person.action}}
+							</a>
+						</td>
+					</tr>
+				  <tr>
+					
+				</tbody>
+			</table>
+			<!-- <button type = "button" class = "btn btn-success btn-mrgn"><span class="glyphicon glyphicon-ok"></span>&nbsp;OK</button>&nbsp;&nbsp;<button type = "button" class = "btn btn-danger btn-mrgn"><span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel</button> -->
+		</div>
+	</div>	
+	
+	<div class=""></div><br clear="all"/> 
+
+</div>
+    <footer class="footer">	
+      <div class="container">
+        <p class="text-muted">@copyright | Accenture India</p>
+      </div>
+    </footer>
+
+
+
+
+</body>
+</html>

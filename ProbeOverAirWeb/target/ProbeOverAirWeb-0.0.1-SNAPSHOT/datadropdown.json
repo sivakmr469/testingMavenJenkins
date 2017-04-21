@@ -1,0 +1,24 @@
+{
+  "deviceList":[
+    {
+      "deviceId": 1,
+      "deviceName": "LINUX",
+      "location": "PUNE",
+      "status": "Active"
+    },
+    {
+      "deviceId": 2,
+      "deviceName": "RASPBERRYPI",
+      "location": "PUNE",
+      "status": "Active"
+    },
+    {
+      "deviceId": 3,
+      "deviceName": "Intel DK 300",
+      "location": "PUNE",
+      "status": "Active"
+    }
+  ],
+  "resultCode": 100,
+  "resultDescription": "Request successfully executed"
+}

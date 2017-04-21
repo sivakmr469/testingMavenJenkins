@@ -1,0 +1,148 @@
+{
+  "person":[
+    {
+      "id" : 1,
+      "device_name" : "Raspberry",
+      "status" : "Available",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 2,
+	  "device_name" : "Raspberry-I",
+      "status" : "Available",
+      "location" : "Hyderabad"
+    },
+    {
+      "id" : 3,
+	  "device_name" : "Raspberry-II",
+      "status" : "Available",
+      "location" : "Pune"
+    },
+    {
+      "id" : 4,
+	  "device_name" : "Raspberry-IV",
+      "status" : "Disconnected",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 5,
+	  "device_name" : "Raspberry-I",
+      "status" : "Disconnected",
+      "location" : "Pune"
+    },
+    {
+      "id" : 6,
+	  "device_name" : "Raspberry-II",
+      "status" : "Disconnected",
+      "location" : "Hyderabad"
+    },
+    {
+      "id" : 7,
+	  "device_name" : "Raspberry-III",
+      "status" : "Pending",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 8,
+	  "device_name" : "Raspberry-IV",
+      "status" : "Disconnected",
+      "location" : "Pune"
+    },
+    {
+      "id" : 1,
+      "device_name" : "Raspberry",
+      "status" : "Available",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 2,
+	  "device_name" : "Raspberry-I",
+      "status" : "Available",
+      "location" : "Hyderabad"
+    },
+    {
+      "id" : 3,
+	  "device_name" : "Raspberry-II",
+      "status" : "Available",
+      "location" : "Pune"
+    },
+    {
+      "id" : 4,
+	  "device_name" : "Raspberry-IV",
+      "status" : "Disconnected",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 5,
+	  "device_name" : "Raspberry-I",
+      "status" : "Disconnected",
+      "location" : "Pune"
+    },
+    {
+      "id" : 6,
+	  "device_name" : "Raspberry-II",
+      "status" : "Disconnected",
+      "location" : "Hyderabad"
+    },
+    {
+      "id" : 7,
+	  "device_name" : "Raspberry-III",
+      "status" : "Pending",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 8,
+	  "device_name" : "Raspberry-IV",
+      "status" : "Disconnected",
+      "location" : "Pune"
+    },
+	{
+      "id" : 1,
+      "device_name" : "Raspberry",
+      "status" : "Available",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 2,
+	  "device_name" : "Raspberry-I",
+      "status" : "Available",
+      "location" : "Hyderabad"
+    },
+    {
+      "id" : 3,
+	  "device_name" : "Raspberry-II",
+      "status" : "Available",
+      "location" : "Pune"
+    },
+    {
+      "id" : 4,
+	  "device_name" : "Raspberry-IV",
+      "status" : "Disconnected",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 5,
+	  "device_name" : "Raspberry-I",
+      "status" : "Disconnected",
+      "location" : "Pune"
+    },
+    {
+      "id" : 6,
+	  "device_name" : "Raspberry-II",
+      "status" : "Disconnected",
+      "location" : "Hyderabad"
+    },
+    {
+      "id" : 7,
+	  "device_name" : "Raspberry-III",
+      "status" : "Pending",
+      "location" : "Bangalore"
+    },
+    {
+      "id" : 8,
+	  "device_name" : "Raspberry-IV",
+      "status" : "Disconnected",
+      "location" : "Pune"
+    }
+  ]
+}

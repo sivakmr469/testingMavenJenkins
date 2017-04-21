@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="app1">
+<head>
+	<title>Accenture</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://silviomoreto.github.io/bootstrap-select/dist/css/bootstrap-select.min.css"> 	
+	<link rel="stylesheet" href="css/component.css">    
+	<link rel="stylesheet" href="css/BootSideMenu.css">  
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script> -->
+	<script src="js/app.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/ng-table.min.js"></script> 
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+    
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script><script src="js/BootSideMenu.js"></script>
+	  <script src="js/angularjs-dropdown-multiselect.js"></script>
+		 <script type="text/javascript">
+			  $(document).ready(function(){
+				  $('#menuleft').BootSideMenu({side:"left", autoClose:true});
+				  $( ".checkboxInput" ).attr( "name", "selectvalue" );
+				 // $( ".checkboxInput" ).attr( "id", "{{getPropertyForObject(option, settings.displayProp)}}" );
+				  
+				  });
+				 
+		 </script>
+
+</head>
+<body ng-controller="MainCtrl">
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+    <div class="navbar-header">
+		<button type="button" class="navbar-toggle" >
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>                        
+      	</button>
+      	<a class="navbar-brand" href="index.html">Accenture</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+		
+		<ul class="nav navbar-nav navbar-right">
+        	<li><a href="#"><span class="glyphicon glyphicon-user"></span> User Name</a></li>
+        	<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      	</ul>
+    </div>
+ 	</div>
+</nav>
+ 
+	<div id="menuleft">	
+		<div class="list-group">
+		  <a href="device_avail.html" class="list-group-item" target="_self" >Dashboard</a>
+		  <a href="/ProbeOverAirWeb/createprobe" class="list-group-item active">Add New Test Probes</a>
+		  <a href="#" class="list-group-item">Device Inventory</a>
+		  <a href="#" class="list-group-item disabled">Standard Test Libraries</a>
+		  <a href="#" class="list-group-item disabled">Reports</a>
+		  <a href="#" class="list-group-item">Advanced Search</a>		 
+		</div>
+    </div>
+		<div class="meny-arrow"></div>
+		
+  <div class="container contents">
+  <div class="col-md-2 text-center"  ></div>  
+<div class="col-md-8">
+ <!--  <div ng-init="mySwitch=true"> 
+	<div ng-dropdown-multiselect options="example8data" selected-model="example8model" checkboxes="true"  ng-hide="mySwitch"></div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+	<h3>The model:</h3>
+	<h5 ng-repeat="r in example8data" ng-model="mySwitch11">{{r.id}}</h5>
+   </div>
+   <p>
+<input type="checkbox" ng-model="mySwitch"/>Button
+</p>
+   <p>{{mySwitch}}</p> -->
+  		   <!-- <table class="table table-condensed" frame="box" rules="all" > 
+				<thead>
+				  <tr>
+					<th>Browse File</th>
+					<th>
+						<a href="#" ng-click="scriptsort = 'probename'; sortReverse = !sortReverse">
+							Probe Name
+						<span ng-show="scriptsort == 'probename' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+						<span ng-show="scriptsort == 'probename' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+						</a>
+					</th>
+					<th>
+					 <a href="#" ng-click="scriptsort = 'priority'; sortReverse = !sortReverse">
+							Priority
+						<span ng-show="scriptsort == 'priority' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+						<span ng-show="scriptsort == 'priority' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+					</th>
+					<th>
+					   <a href="#" ng-click="scriptsort = 'select_device'; sortReverse = !sortReverse">
+							Select Device
+						<span ng-show="scriptsort == 'select_device' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+						<span ng-show="scriptsort == 'select_device' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+					</th>
+					<th>Close</th>
+				  </tr>
+				</thead>
+				<tbody>	
+				<tr>
+				   <td></td>
+				   <td></td>
+				   <td></td>
+				   <td></td>
+				   <td></td>
+				</tr>
+				</tbody>
+		</table>
+		<button type = "button" class = "btn btn-success btn-mrgn" ng-click="addRow()"><span class="glyphicon glyphicon-plus"  aria-hidden="true" ></span>&nbsp;Add More</button>&nbsp;
+		<button type = "button" class = "btn btn-success btn-mrgn" ><span class="glyphicon glyphicon-arrow-up"  aria-hidden="true" ></span>&nbsp;Submit</button>
+		<!-- <button type = "button" class = "btn btn-success btn-mrgn" ng-click="addItem()"><span class="glyphicon glyphicon-plus"  aria-hidden="true" ></span>&nbsp;Add More</button> -->
+	</div>
+	<div class="col-md-2"></div>
+	<!-- <form><textarea id="ExampleOutput" style="width:100%" rows="10"></textarea></form> -->
+</div>
+
+<div class="container">
+<div class="row">
+		 <div class="col-md-12 text-center">
+		  <h3>Probe Creation</h3>
+		 </div> <br clear="all"/> <br clear="all"/> 
+	</div>	
+<div class="col-md-2"></div>      
+
+<!-- Text input-->
+	<div class="col-md-8">   
+		<!-- <form class="well form-horizontal" action="UploadServlet" method="post"  id="contact_form" enctype="multipart/form-data"> -->	
+		
+		<form class="well form-horizontal" action="UploadServlet" method="post"  id="contact_form" enctype="multipart/form-data">
+			<div class="form-group" >
+			  <label class="col-md-4 control-label">Probe Name</label>  
+				<div class="col-md-4 inputGroupContainer">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
+			  <input name="probe-name" placeholder="Probe Name" class="form-control" type="text" id="probe-name"> 
+			   <!-- <input type="text" name="probe-name">  -->
+				</div>
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			 
+			<div class="form-group" id="select-device">
+			  <label class="col-md-4 control-label">Select Devices</label>  
+				<div class="col-md-4 inputGroupContainer">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-hdd"></i></span>
+					
+			  <div> 
+				<div ng-dropdown-multiselect options="example8data"  selected-model="example8model"  checkboxes="true"  ng-hide="mySwitch" ></div>
+				<!-- ng-checked="selection.indexOf(example8data.id) > -1" ng-click="toggleSelection(example8data.id,example8data.label)" id="{{example8data.id}}" -->
+			  </div>
+				</div>
+			  </div>
+			</div>
+			
+			<div class="form-group" id="selected-device-table">
+			  <label class="col-md-4 control-label">Selected Devices</label>  
+				<div class="col-md-4 inputGroupContainer">
+				<table class="table table-condensed" frame="box" rules="all" > 
+					<thead>
+					  <tr>
+						<th>Device Name</th>
+						<th>Device Location</th>
+						<th>Status</th>
+						<th>Close</th>
+					  </tr>	
+					</thead>
+					<tbody>	
+					
+		
+					<!-- <tr ng-repeat="name in selection">
+						<td>{{name}}</td>
+					</tr> -->
+					<!-- <tr>
+						<td>{{example1model|json}}</td>
+					</tr> -->
+					 <tr>
+						<td>Raspberry Pi</td>
+						<td>Pune</td>
+						<td>Active</td>
+						<td><span class="input-group-addon addon1"><i class="glyphicon glyphicon-remove"></i></span></td>
+					 </tr>
+					 <tr>
+						<td>Intel DK 300</td>
+						<td>Bangalore</td>
+						<td>Active</td>
+						<td><span class="input-group-addon addon1"><i class="glyphicon glyphicon-remove"></i></span></td>
+					 </tr>
+					 <tr>
+						<td>Kapparock</td>
+						<td>Pune</td>
+						<td>Active</td>
+						<td><span class="input-group-addon addon1"><i class="glyphicon glyphicon-remove"></i></span></td>
+					 </tr>
+					  <tr>
+						<td>Intel DK 300</td>
+						<td>Bangalore</td>
+						<td>Active</td>
+						<td><span class="input-group-addon addon1"><i class="glyphicon glyphicon-remove"></i></span></td>
+					 </tr>
+					 <!--<tr>
+						<td>Raspberry Pi</td>
+						<td>Pune</td>
+						<td>Active</td>
+						<td><span class="input-group-addon"><i class="glyphicon glyphicon-remove"></i></span></td>
+					 </tr>
+					 <tr>
+						<td>Alomond</td>
+						<td>Bangalore</td>
+						<td>Active</td>
+						<td><span class="input-group-addon"><i class="glyphicon glyphicon-remove"></i></span></td>
+					 </tr> -->
+					</tbody>	
+				</table>	
+
+			  </div>
+			</div>
+			
+			<div class="form-group" id="browse-scripts">
+			  <label class="col-md-4 control-label">Test Scripts</label>  
+				<div class="col-md-2 inputGroupContainer">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-folder-open"></i></span>
+					<span class="btn btn-default btn-file">
+						Browse   <input type="file"  name="file" id="fileElementId" multiple="multiple"> 
+						 <!-- <input type="file" name="file" size="50"  /> --> 
+					</span>
+				 </div>
+			  </div>
+			  <div class="col-md-2"><button type="button" class="btn btn-primary btn-sm" ng-click="filedate()" id="showbut"><i class="glyphicon glyphicon-refresh"></i>&nbsp;&nbsp;Click</button></div>
+			</div>
+			
+			<div class="form-group"id="selected-browse-list">
+			  <label class="col-md-4 control-label">Selected Test Script List</label>  
+				<div class="col-md-4 inputGroupContainer">
+					<table class="table table-condensed" frame="box" rules="all" > 
+						<thead>
+						  <tr>
+							<th>Script File</th>
+							<th>Priority</th>
+							<th>Close</th>
+						  </tr>	
+						</thead>
+				<tbody>	
+				<tr ng-repeat="r in fileContent">				
+					<td name="{{$index}}">{{r}}</td>
+					<td name="{{$index+2}}"><input type="number" class="form-control" name="priority" placeholder="Priority" ng-model="products" ></td>
+					<td><a href=""><span class="input-group-addon addon1" ng-click="removeItem1($index)"><i class="glyphicon glyphicon-remove"></i></span></a></td>
+				</tr>	
+				
+					<!--
+						 <tr>
+							<td>ConformanceCoAP.py</td>
+							<td><input type="text" class="form-control"/></td>
+							<td><span class="input-group-addon"><i class="glyphicon glyphicon-remove"></i></span></td>
+						 </tr>
+						 <tr>
+							<td>Functional.py</td>
+							<td><input type="text" class="form-control"/></td>
+							<td><span class="input-group-addon"><i class="glyphicon glyphicon-remove"></i></span></td>
+						 </tr> 
+						 <tr>
+							<td>ConformanceCoAP.py</td>
+							<td><input type="text" class="form-control"/></td>
+							<td><span class="input-group-addon"><i class="glyphicon glyphicon-remove"></i></span></td>
+						 </tr> 
+						 <tr>
+							<td>ConformanceCoAP.py</td>
+							<td><input type="text" class="form-control"/></td>
+							<td><span class="input-group-addon"><i class="glyphicon glyphicon-remove"></i></span></td>
+						 </tr>
+						-->
+						</tbody>	
+					</table>	
+			  </div>
+			</div>
+			<button type="button" class="btn btn-danger"><a href="" style="color:#fff;text-decoration:none;">Cancel</a></button>&nbsp;
+			<button type="button" class="btn btn-primary" ng-click="save()">Save</button>&nbsp;
+			
+			<button type="submit" class="btn btn-primary">Submit1 </button> 
+			 <input type="submit" class="form-control" value="send"/>		
+		</form>
+	</div>
+			
+	<div class="col-md-2"></div>   
+
+</div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">@copyright | Accenture India</p>
+      </div>
+    </footer>
+
+</body>
+</html>

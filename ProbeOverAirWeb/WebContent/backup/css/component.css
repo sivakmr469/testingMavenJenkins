@@ -1,0 +1,175 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+font-family: 'Lato', sans-serif; /*background: rgba(34, 47, 95, 0.85);*/
+background: rgb(212, 207, 207);
+}
+.fbody{background: rgba(34, 47, 95, 0.85);}
+nav a{transition:0.5s;}
+nav a:hover,nav a:focus{transition:0.5s;}
+.nav-btm a {
+	position: relative;
+	display: inline-block;
+	margin: 15px 25px;
+	outline: none;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 14px;
+}
+
+.nav-btm a:hover,
+.nav-btm a:focus {
+	outline: none;text-decoration:none;
+}
+
+/* Effect 11: text fill based on Lea Verou's animation http://dabblet.com/gist/6046779 */
+.cl-effect-11 a {
+	padding: 10px 0;
+	border-top: 2px solid #0972b4;
+	color: #6FA6D6;
+	text-shadow: none;
+} 
+
+.cl-effect-11 a::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	padding: 10px 0;
+	max-width: 0;
+	border-bottom: 2px solid #fff;
+	color: #fff;
+	content: attr(data-hover);
+	-webkit-transition: max-width 0.5s;
+	-moz-transition: max-width 0.5s;
+	transition: max-width 0.5s;
+}
+.cl-effect-11 a.active::before {
+	max-width: 100%;
+}
+
+.cl-effect-11 a:hover::before,
+.cl-effect-11 a:focus::before {
+	max-width: 100%;
+}
+
+/* custom style */
+.analytic {position: relative;margin: 0 auto;width: 50%;padding: 30px 0px;}
+.analytic img{border: 1px solid rgba(28,75,217,0.41);;border-radius: 5px;transition:0.5s}
+.analytic img:hover{-webkit-box-shadow: 0px 0px 25px 0px rgba(255,255,255,0.41);
+-moz-box-shadow: 0px 0px 25px 0px rgba(255,255,255,0.41);
+box-shadow: 0px 0px 25px 0px rgba(255,255,255,0.41);transition:0.5s}
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+}
+.text-muted{margin: 20px 0;text-align: right;color:#fff;}
+.navbar {
+    border-radius: 0px;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+      text-align: left;
+}
+.form-control{background-color: rgba(255, 255, 255, 0.3);}
+hr{border-top: 1px solid rgba(140, 140, 140, 0.55);}
+.navsec{background: transparent;margin-top: -20px;border-bottom: 1px solid rgba(140, 140, 140, 0.55);}
+.btn-mrgn{margin-bottom: 20px;}
+.test-hist{background:rgb(4, 27, 111);color: #fff;}
+.test-hist a{color: #fff;}
+.modal-dialog {width: 80%;}
+select[multiple]{
+       width: 120px;
+}
+/* button animation  */
+.toggler {
+  background-color: #ff3296;
+  animation: pulse 2.5s ease infinite;
+  /* transition: transform 0.2s; */
+}
+.toggler:hover {
+  color: #fff;
+}
+@keyframes pulse {
+  0% {  background-color:rgba(255, 50, 150, 1);
+    box-shadow:1px 0px 8px rgba(255, 50, 150, .35);
+    transform: scale(1);
+  }
+
+  50% {
+	background-color:rgba(255, 50, 150, 0.55);
+    box-shadow:1px 0px 8px rgba(122, 18, 236, .35);
+    transform: scale(1.1);
+  }
+
+  100% {
+	background-color:rgba(255, 50, 150, 0.15);
+	box-shadow:1px 0px 8px rgba(102, 236, 18, .35);
+    transform: scale(1);
+  }
+}
+/* Icon Spin */
+.toggler .glyphicon {
+/*   display: inline-block;
+  vertical-align: middle; */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+/*   position: relative;
+  padding-right: 2.2em; */
+}
+.toggler .glyphicon:before {
+
+ /*  position: absolute;
+  right: 1em;
+  padding: 0 1px;
+  font-family: FontAwesome; */
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.toggler .glyphicon:hover:before, .hvr-icon-spin:focus:before, .hvr-icon-spin:active:before {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.well{background-color: rgba(245, 245, 245, 0.42);}
+.btn-file {
+		position: relative;
+		overflow: hidden;
+	}
+	.btn-file input[type=file] {
+		position: absolute;
+		top: 0;
+		right: 0;
+		min-width: 100%;
+		min-height: 100%;
+		font-size: 100px;
+		text-align: right;
+		filter: alpha(opacity=0);
+		opacity: 0;
+		outline: none;
+		background: white;
+		cursor: inherit;
+		display: block;
+	}
+	.addon1{width: 0%!important; padding: 6px 10px!important;}

@@ -1,0 +1,19 @@
+{
+  "DeviceDetailsList": [
+    {
+      "deviceName": "LINUX",
+      "location": "PUNE",
+      "status": "Pending",
+      "allocationId": "4"
+    },
+    {
+      "deviceName": "RASPBERRYPI",
+      "location": "pune",
+      "status": "Pending",
+      "allocationId": "5"
+    }
+  ],
+  "resultCode": "100",
+  "resultDescription": "Request Successfully executed"
+}
+

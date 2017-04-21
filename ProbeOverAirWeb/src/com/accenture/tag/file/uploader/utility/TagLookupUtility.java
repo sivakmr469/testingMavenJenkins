@@ -1,0 +1,173 @@
+package com.accenture.tag.file.uploader.utility;
+
+import java.io.InputStream;
+import java.lang.reflect.Type;
+import java.util.Calendar;
+import java.util.Date;
+
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.apache.commons.io.IOUtils;
+
+import com.accenture.tag.file.upload.bean.RestRequest;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+public class TagLookupUtility {
+
+	//private static final String tagBLServiceUrl = "http://localhost:8080/ProbeOverAirWeb/rest";
+	//private static final String tagBLServiceUrl = "http://52.10.165.197/:8080/ProbeOverAirWeb/rest";
+	private static final String tagBLServiceUrl = "http://52.10.165.197:8080/ProbeOverAirWeb/rest";	
+	//private static final String tagBLServiceUrl = "http://52.10.165.197:8080/ProbeOverAirWeb/rest";
+	//private static final String tagBLServiceUrl = "http://192.168.1.124:8080/ProbeOverAirWeb/rest";
+	//private static final String tagBLServiceUrl = "http://10.231.124.72:8080/ProbeOverAirWeb/rest";
+	
+	
+	private static Gson gsonObject = new Gson();
+	
+	public String invokeBLPostService(final RestRequest restReq){
+ 		String jSonRequest = convertJavaObjectToJSon(restReq.getRequestObject());
+ 		System.out.println(jSonRequest);
+ 		HttpClient client = new HttpClient();
+ 		String responseJsonString = null;
+ 		String tagServiceEndPnt = tagBLServiceUrl+restReq.getRestUrl();
+ 		System.out.println("tagServiceEndPnt :: "+tagServiceEndPnt);
+ 		PostMethod postRequest = new PostMethod(tagServiceEndPnt);
+ 		
+ 		try {
+ 			postRequest.setRequestHeader(Constants.CONTENT_TYPE_HEADER_NAME,Constants.REST_HEADER_CONTENT_TYPE);
+ 			postRequest.setRequestEntity(new StringRequestEntity(jSonRequest,Constants.REST_HEADER_CONTENT_TYPE,"UTF-8"));
+ 			
+ 			client.executeMethod(postRequest);
+ 			int statusCode = postRequest.getStatusCode();
+
+ 			System.out.println("statusCode ::"+statusCode);
+ 			if(Constants.HTTP_STATUS_CODE_OK != statusCode){
+ 				responseJsonString = Constants.API_ERROR;
+ 			}else{
+ 				InputStream responseStream = postRequest.getResponseBodyAsStream();
+ 				responseJsonString = IOUtils.toString(responseStream, "UTF-8");
+ 				
+ 			}
+ 			System.out.println("responseJsonString ::"+responseJsonString);
+ 		}catch (Exception exMsg){
+ 			System.out.println(exMsg.getMessage());
+ 		}finally{
+ 			postRequest.releaseConnection();
+ 		}
+ 		return responseJsonString;
+ 	}
+	
+	public String invokeBLGetService(final RestRequest restReq){
+ 		HttpClient client = new HttpClient();
+ 		String responseJsonString = null;
+ 		String tagServiceEndPnt = tagBLServiceUrl+restReq.getRestUrl();
+ 		System.out.println("tagServiceEndPnt :: "+tagServiceEndPnt);
+ 		GetMethod getRequest = new GetMethod(tagServiceEndPnt);
+ 		
+ 		try {
+ 			getRequest.setRequestHeader(Constants.CONTENT_TYPE_HEADER_NAME,Constants.REST_HEADER_CONTENT_TYPE);
+ 			client.executeMethod(getRequest);
+ 			int statusCode = getRequest.getStatusCode();
+ 			if(Constants.HTTP_STATUS_CODE_OK != statusCode){
+ 				responseJsonString = Constants.API_ERROR;
+ 			}else{
+ 				InputStream responseStream = getRequest.getResponseBodyAsStream();
+ 				responseJsonString = IOUtils.toString(responseStream, "UTF-8");
+ 				System.out.println("responseJsonString ::"+responseJsonString);
+ 			}
+ 		}catch (Exception exMsg){
+ 		}finally{
+ 			getRequest.releaseConnection();
+ 		}
+ 		return responseJsonString;
+ 	}
+	
+	/** Method to convert java objects to Json string
+	 * @param javaObject
+	 * @return String
+	 */
+	private static String convertJavaObjectToJSon(final Object javaObject){
+
+		JsonSerializer<Date> ser = new JsonSerializer<Date>() {
+			@Override
+			public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext 
+					context) {
+				return src == null ? null : new JsonPrimitive(src.getTime());
+			}
+		};
+
+		gsonObject = new GsonBuilder().registerTypeAdapter(Date.class, ser).create();
+		String jsonStringObject = gsonObject.toJson(javaObject);
+
+		return jsonStringObject;
+	}
+	
+	/** Method to convert Json to Java objects
+	 * @param jsonString
+	 * @param javaClass
+	 * @return String
+	 */
+	public Object convertJSonToJavaObject(final String jsonString, final Type javaClass){
+		
+	
+			Object javaObject = null;
+			try{
+			if(Utils.isNotEmptyNull(jsonString)){
+				JsonElement jsonElement = new JsonParser().parse(jsonString.toString());
+
+
+				GsonBuilder gsonBuilder = new GsonBuilder();
+				gsonBuilder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
+					@Override
+					public Date deserialize(final JsonElement json, final Type typeOfT, final JsonDeserializationContext context)
+							throws JsonParseException {
+						Date parsedDate = new Date();
+						if(null != json && !"".equals(json)){
+							if(json.getAsLong() != 0 ){
+								parsedDate = Calendar.getInstance().getTime();
+								parsedDate.setTime(json.getAsLong());
+							}
+						}
+						return parsedDate;
+					}
+				});
+
+				gsonBuilder.registerTypeAdapter(byte[].class, new JsonDeserializer<byte[]>() {
+					@Override
+					public byte[] deserialize(final JsonElement json, final Type typeOfT, final JsonDeserializationContext context)
+							throws JsonParseException {
+
+						String str = json.getAsString();
+
+						byte[] data = new byte[str.length()];
+						data = str.getBytes();		               
+						return data;		        	   
+
+					}
+				});
+				gsonObject = gsonBuilder.create();
+				JsonObject  jsonObject = jsonElement.getAsJsonObject();
+				javaObject = gsonObject.fromJson(jsonObject.toString(),javaClass);
+			}
+			
+		}catch(Exception exMsg){
+			System.out.println(exMsg.getMessage());
+		}
+			return javaObject;
+	}
+	
+	
+
+}

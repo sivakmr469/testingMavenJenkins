@@ -1,0 +1,211 @@
+.sidebar{
+      z-index: 999999;
+      position: fixed;
+      top: -1px;
+      bottom: -1px;
+      padding:0px;
+      width: auto;
+      background-color: #333636;
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+
+}
+
+.sidebar > .row > .col-xs-12, .sidebar > .row > .col-sm-12, .sidebar > .row > .col-md-12, .sidebar > .row > .col-lg-12{
+      padding:0px;
+      position: absolute;
+      bottom: 0px;
+      top: 0px;
+      overflow: auto;           
+}
+
+.sidebar >.row{
+      margin:0px;
+}
+
+.sidebar {
+      width: auto;
+}
+.sidebar.sidebar-left{
+      left:0px;
+      right:20px;
+}
+
+.sidebar.sidebar-right{
+      right:0px;
+      left:20px;
+}
+
+@media (min-width: 400px) {
+
+}
+@media (min-width: 528px) {
+      .sidebar {
+            width: 300px;
+      }
+      .sidebar.sidebar-left{
+            left:0px;
+            right:auto;
+      }
+
+      .sidebar.sidebar-right{
+            right:0px;
+            left:auto;
+      }
+}
+@media (min-width: 768px) {
+      .sidebar {
+            width: 230px;
+      }
+      .sidebar.sidebar-left{
+            left:0px;
+            right:auto;
+      }
+
+      .sidebar.sidebar-right{
+            right:0px;
+            left:auto;
+      }
+}
+@media (min-width: 992px) {
+      .sidebar {
+            width: 230px;
+      }
+      .sidebar.sidebar-left{
+            left:0px;
+            right:auto;
+      }
+
+      .sidebar.sidebar-right{
+            right:0px;
+            left:auto;
+      }
+}
+@media (min-width: 1200px) {
+      .sidebar {
+            width: 230px;
+      }
+      .sidebar.sidebar-left{
+            left:0px;
+            right:auto;
+      }
+
+      .sidebar.sidebar-right{
+            right:0px;
+            left:auto;
+      }
+}
+.toggler{
+      width: 20px;
+      height: 48px;
+      position: absolute;
+      top: 45%;
+      cursor: pointer;
+}
+.sidebar-left > .toggler{
+      right: -19px;
+} 
+
+.sidebar-left > .toggler > span{
+      margin:15px 2px;
+}
+
+.sidebar-left > .toggler > .glyphicon-chevron-right{
+      display:none;    margin-top: -101px;
+}
+
+.sidebar-right > .toggler{   		
+      left: -20px;
+} 
+
+.sidebar-right > .toggler > span{
+      margin:15px 2px;
+}
+
+.sidebar-right > .toggler > .glyphicon-chevron-left{
+      display:none; 
+}
+
+.sidebar .submenu{
+      display: none;
+      position: fixed;
+} 
+
+/*Native BootStrap Hack*/
+.sidebar .list-group-item:last-child, .sidebar .list-group-item:first-child{
+      border-radius:0px;
+}
+
+.sidebar .list-group{
+      margin-bottom:0px;
+}
+.sidebar .list-group-item{
+      padding: 5px;
+      border: 1px solid #141414;
+      border-left: 0px;
+      border-right: 0px;
+      margin-bottom: 0px;
+      margin-top: -1px;
+	  background-color: #333636;
+	  
+}
+.sidebar .list-group-item.active,.sidebar .list-group-item.active:focus, .sidebar .list-group-item.active:hover{background:url("../images/menu_bg.png")repeat-y;}
+.sidebar .list-group-item:focus, .sidebar .list-group-item:hover{background:url("../images/menu_bg.png")repeat-y;}
+.sidebar a.list-group-item{color:#fff;font-size: 16px;}
+.sidebar .list-group-item img{width:25px;height:25px;margin-right: 8px;}
+.list-group h2{color:#fff;}
+
+/* button animation sTART */
+/* .toggler {
+  background-color: #ff3296;
+  animation: pulse 2.5s ease infinite;
+ 
+}
+.toggler:hover {
+  color: #fff;
+}
+@keyframes pulse {
+  0% {  background-color:rgba(255, 50, 150, 1);
+    box-shadow:1px 0px 8px rgba(255, 50, 150, .35);
+    transform: scale(1);
+  }
+
+  50% {
+	background-color:rgba(255, 50, 150, 0.55);
+    box-shadow:1px 0px 8px rgba(122, 18, 236, .35);
+    transform: scale(1.1);
+  }
+
+  100% {
+	background-color:rgba(255, 50, 150, 0.15);
+	box-shadow:1px 0px 8px rgba(102, 236, 18, .35);
+    transform: scale(1);
+  }
+}
+
+.toggler .glyphicon {
+
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+.toggler .glyphicon:before {
+
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.toggler .glyphicon:hover:before, .hvr-icon-spin:focus:before, .hvr-icon-spin:active:before {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+} */
+/* button animation END */

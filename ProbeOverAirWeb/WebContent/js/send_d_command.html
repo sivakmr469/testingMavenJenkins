@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>Welcome Send Diagnostic Command</title>
+<link rel="stylesheet" media="all" href="css/terminal.css">
+<!-- <link rel="chrome-application-definition" href="js/manifest.json">-->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.teletype.js"></script>
+<style>
+.pad{padding-left: 20px;padding-top: 20px;}
+.mar{margin-left: 20px;margin-top: 20px;}
+.mar a{color:#000;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<p class="type-text pad" title="Welcome To Send Diagnostic Command\n Please Enter the Command Below"> Hi...</p>
+
+<!--<div class="crt top"></div>-->
+<div class="interlace"></div>
+<div id="container"></div>
+<!--<div class="crt bottom"></div>-->
+<button class="mar">Send</button>&nbsp;&nbsp;&nbsp;
+<button class="mar"><a href="device_avail.html">Cancel</a></button>
+<script src="js/terminal.js"></script>
+<script>
+		$( function() {
+			$( '.type-text' ).each( function() {
+				var items = $( this ).attr( 'title' ) + ';' + $( this ).text();
+				$( this ).empty().attr( 'title', '' ).teletype( {
+					text: $.map( items.split( ';' ), $.trim ),
+					typeDelay: 10,
+					backDelay: 20,
+					cursor: '_', 
+					delay: 3000,
+					preserve: false,
+					prefix: '# ',
+					loop: 0
+				} );
+			} );
+		} );
+		</script>
+<script>
+function toggleHelp() {
+  document.querySelector('.help').classList.toggle('hidden');
+  document.body.classList.toggle('dim');
+}
+
+(function() {
+  var term = new Terminal('container');
+  term.initFS(false, 1024 * 1024);
+
+  if (document.location.hash) {
+    var theme = document.location.hash.substring(1).split('=')[1];
+    term.setTheme(theme);
+  } else if (localStorage.theme) {
+    term.setTheme(localStorage.theme);
+  }
+
+  document.body.addEventListener('keydown', function(e) {
+    if (e.keyCode == 27) { // Esc
+      toggleHelp();
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }, false);
+
+  // Setup the DnD listeners for file drop.
+/* document.body.addEventListener('dragenter', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    this.classList.add('dropping');
+  }, false);
+
+  document.body.addEventListener('dragover', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }, false);
+
+  document.body.addEventListener('dragleave', function(e) {
+   this.classList.remove('dropping');
+  }, false);
+  
+  document.body.addEventListener('drop', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    this.classList.remove('dropping');
+    term.addDroppedFiles(e.dataTransfer.files);
+    term.output('<div>File(s) added!</div>');
+  }, false); */
+})();
+</script>
+
+</body>
+</html>

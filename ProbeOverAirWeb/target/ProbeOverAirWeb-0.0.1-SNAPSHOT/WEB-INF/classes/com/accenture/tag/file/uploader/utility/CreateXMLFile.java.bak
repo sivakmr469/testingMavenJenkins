@@ -1,0 +1,63 @@
+package com.accenture.tag.file.uploader.utility;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;import javax.print.DocFlavor.STRING;
+
+public class CreateXMLFile {
+	public static void createXMLFIle(Probe probe, String filePath)
+	{
+        try {
+        	File file=new File(filePath+"test.xml");
+        	
+        	if(!file.exists())
+        		file.createNewFile();
+        	file.setExecutable(true,false);
+        	file.setReadable(true, false);
+        	file.setWritable(true, false);
+        	FileOutputStream fop=new FileOutputStream(file);
+            XmlDomDocument newdoc = new XmlDomDocument();
+            String currTimeStamp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
+            newdoc.addChildElement(null, 0, "work", null);
+            newdoc.addChildElement("work", 0, "SourceIP", null);
+            newdoc.setAttributeValue("work", 0, "name", probe.getProbeName());
+            newdoc.setAttributeValue("SourceIP", 0, "val", "['10.231.124.139']" );
+            newdoc.setAttributeValue("SourceIP", 0, "name", "S_IP");
+            
+            newdoc.addChildElement("work", 0, "Timestamp", currTimeStamp);
+            newdoc.setAttributeValue("Timestamp", 0, "val", "");
+            newdoc.setAttributeValue("Timestamp", 0, "name", "Request");
+            
+            //newdoc.addChildElement("work", 0, "devices", null);
+//            newdoc.setAttributeValue("devices", 0, "name", "IntelDK300;Raspberypi;");
+        
+            int testTagIndex=0;
+            Map<String, String> map=poto.getScriptsMap();
+            Set< String> keySet=map.keySet();
+            for (String key : keySet) {
+            	//newdoc.addChildElement("devices", 0, "Testname", null);
+            	newdoc.addChildElement("work", 0, "Testname", null);
+            	newdoc.setAttributeValue("Testname", testTagIndex, "name", filePriority.getFileName());
+            	newdoc.setAttributeValue("Testname", testTagIndex, "execution", "Yes");
+            	
+            	newdoc.setAttributeValue("Testname", testTagIndex, "Priority", filePriority.getPriority());
+                
+                
+               System.out.println("added one more testname tag  :: key :: "+key+"  :: value  :: "+map.get(key));
+               testTagIndex++;
+			}
+        	 System.out.println(newdoc.renderXml());
+             fop.write(newdoc.renderXml().getBytes());
+             fop.close();
+ 
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+	}
+}
