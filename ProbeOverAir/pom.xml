@@ -59,11 +59,11 @@
   </executions>
   <configuration>
     <force>true</force>
-    <hostname>${localhost}</hostname>
-    <port>${8100}</port>
-    <username>${siva}</username>
-    <password>${Apr@2017}</password>
-    <filename>${ProbeOverAirEar-0.0.1-SNAPSHOT.ear}</filename>
+    <hostname>${hostname}</hostname>
+    <port>${port}</port>
+    <username>${username}</username>
+    <password>${password}</password>
+    <filename>${filename}</filename>
   </configuration>
 </plugin>
     </plugins>
