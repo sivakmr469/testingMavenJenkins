@@ -44,6 +44,28 @@
           <defaultLibBundleDir>lib</defaultLibBundleDir>
         </configuration>
       </plugin>
+      
+      <plugin>
+  <groupId>org.wildfly.plugins</groupId>
+  <artifactId>wildfly-maven-plugin</artifactId>
+  <version>1.1.0.Alpha10</version>
+  <executions>
+    <execution>
+      <phase>install</phase>
+      <goals>
+        <goal>redeploy</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <force>true</force>
+    <hostname>${localhost}</hostname>
+    <port>${8100}</port>
+    <username>${siva}</username>
+    <password>${Apr@2017}</password>
+    <filename>${ProbeOverAirEar-0.0.1-SNAPSHOT.ear}</filename>
+  </configuration>
+</plugin>
     </plugins>
   </build>
 </project>
