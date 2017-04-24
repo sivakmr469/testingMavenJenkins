@@ -65,7 +65,7 @@
 					<port>${port}</port>
 					<username>${username}</username>
 					<password>${password}</password>
-					<filename>${artifactId}.${packaging}</filename>
+					<filename>ProbeOverAirEar-0.0.1-SNAPSHOT.ear</filename>
 				</configuration>
 			</plugin>
 		</plugins>
