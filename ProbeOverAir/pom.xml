@@ -73,8 +73,14 @@
   <artifactId>jboss-as-maven-plugin</artifactId>
   <version>7.0.0.Final</version>
             <configuration>
-                <skip>false</skip>
-            </configuration>
+     <force>true</force>
+    <hostname>${hostname}</hostname>
+    <port>${port}</port>
+    <username>${username}</username>
+    <password>${password}</password>
+    <filename>${filename}</filename>
+    <skip>false</skip>
+  </configuration>
         </plugin>
 		</plugins>
 	</build>

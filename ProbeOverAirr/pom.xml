@@ -28,18 +28,19 @@
   <executions>
     <execution>
       <phase>install</phase>
-      <goals>
+      <!-- <goals>
         <goal>redeploy</goal>
-      </goals>
+      </goals> -->
     </execution>
   </executions>
   <configuration>
-    <force>true</force>
+    <!-- <force>true</force>
     <hostname>${hostname}</hostname>
     <port>${port}</port>
     <username>${username}</username>
     <password>${password}</password>
-    <filename>${filename}</filename>
+    <filename>${filename}</filename> -->
+    <skip>true</skip>
   </configuration>
 </plugin>
       
