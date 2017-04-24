@@ -265,7 +265,7 @@
   <artifactId>jboss-as-maven-plugin</artifactId>
   <version>7.1.1.Final</version>
             <configuration>
-                <skip>true</skip>
+                <skip>jboss-as.skip</skip>
             </configuration>
         </plugin>
     </plugins>
