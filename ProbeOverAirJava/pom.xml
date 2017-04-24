@@ -25,7 +25,7 @@
   <artifactId>jboss-as-maven-plugin</artifactId>
   <version>7.0.0.Final</version>
             <configuration>
-                <skip>jboss-as.skip</skip>
+                <skip>true</skip>
             </configuration>
         </plugin>
     </plugins>
