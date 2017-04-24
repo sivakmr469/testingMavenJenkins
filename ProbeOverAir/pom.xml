@@ -68,6 +68,14 @@
 					<filename>ProbeOverAirEar-0.0.1-SNAPSHOT.ear</filename>
 				</configuration>
 			</plugin> -->
+			<plugin>
+           <groupId>org.jboss.as.plugins</groupId>
+  <artifactId>jboss-as-maven-plugin</artifactId>
+  <version>7.1.1.Final</version>
+            <configuration>
+                <skip>false</skip>
+            </configuration>
+        </plugin>
 		</plugins>
 	</build>
 </project>
