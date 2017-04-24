@@ -60,11 +60,12 @@
 				</executions>
 				<configuration>
 					<force>true</force>
+					  <skip>false</skip>
 					<hostname>${hostname}</hostname>
 					<port>${port}</port>
 					<username>${username}</username>
 					<password>${password}</password>
-					<filename>${filename}</filename>
+					<filename>${artifactId}.${packaging}</filename>
 				</configuration>
 			</plugin>
 		</plugins>
