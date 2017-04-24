@@ -25,14 +25,14 @@
   <groupId>org.jboss.as.plugins</groupId>
   <artifactId>jboss-as-maven-plugin</artifactId>
   <version>7.0.0.Final</version>
-  <executions>
+   <!--<executions>
     <execution>
       <phase>install</phase>
-      <!-- <goals>
+      <goals>
         <goal>redeploy</goal>
-      </goals> -->
+      </goals>
     </execution>
-  </executions>
+  </executions> -->
   <configuration>
     <!-- <force>true</force>
     <hostname>${hostname}</hostname>
